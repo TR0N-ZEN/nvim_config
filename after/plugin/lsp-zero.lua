@@ -1,4 +1,8 @@
+
+-- https://github.com/williamboman/mason-lspconfig.nvim
 local lsp_zero = require('lsp-zero')
+
+lsp_zero.preset("recommended")
 
 lsp_zero.on_attach(function(client, bufnr)
   local opts = {buffer = bufnr, remap = false}
@@ -15,20 +19,30 @@ lsp_zero.on_attach(function(client, bufnr)
   vim.keymap.set("i", "<C-h>", function() vim.lsp.buf.signature_help() end, opts)
 end)
 
+-- https://github.com/williamboman/mason.nvim
 require('mason').setup({})
+
+-- https://github.com/williamboman/mason-lspconfig.nvim
 require('mason-lspconfig').setup({
-  ensure_installed = {'tsserver', 'rust_analyzer', 'pylsp'},
+  ensure_installed = { 
+    -- 'java_language_server', 
+    'pylsp'
+  },
   handlers = {
     lsp_zero.default_setup,
     lua_ls = function()
       local lua_opts = lsp_zero.nvim_lua_ls()
+
+      -- why is this happening for other language servers later down below?
+      -- get some lanugage server configurations
       require('lspconfig').lua_ls.setup(lua_opts)
     end,
   }
 })
 
+-- get some lanugage server configurations
+--require'lspconfig'.java_language_server.setup{}
 require'lspconfig'.pylsp.setup{}
-require'lspconfig'.relay_lsp.setup{}
 
 
 local cmp = require('cmp')
