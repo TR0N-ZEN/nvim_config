@@ -1,6 +1,6 @@
 -- This file can be loaded by calling `lua require('plugins')` from your init.vim
 
--- Only required if you have packer configured as `opt`
+-- Only required if you have packer configured as `opt` whatever this means
 vim.cmd [[packadd packer.nvim]]
 
 return require('packer').startup(function(use)
@@ -39,6 +39,9 @@ return require('packer').startup(function(use)
       {'L3MON4D3/LuaSnip'},
     }
   }  
+
+  -- install a colorscheme https://github.com/rebelot/kanagawa.nvim
+  use ('rebelot/kanagawa.nvim')
 
 end)
 
