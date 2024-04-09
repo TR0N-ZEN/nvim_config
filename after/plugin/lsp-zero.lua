@@ -20,9 +20,11 @@ lsp_zero.on_attach(function(client, bufnr)
 end)
 
 -- https://github.com/williamboman/mason.nvim
+-- for installation and configuration of language servers
 require('mason').setup({})
 
 -- https://github.com/williamboman/mason-lspconfig.nvim
+-- for installation and configuration of language servers
 require('mason-lspconfig').setup({
   ensure_installed = { 
     -- 'java_language_server', 
@@ -62,7 +64,7 @@ cmp.setup({
     ['<C-n>'] = cmp.mapping.select_next_item(cmp_select),
     ['<C-y>'] = cmp.mapping.confirm({ select = true }),
     ['<C-Space>'] = cmp.mapping.complete(),
-    ['<C-o>'] = cmp.mapping.open_docs(),
+    ['<C-o>'] = cmp.mapping.open_docs(), -- opens docs for the marked item in the completion list window
     ['<C-c>'] = cmp.mapping.close_docs(),
   }),
 })

@@ -1,4 +1,10 @@
--- This file can be loaded by calling `lua require('plugins')` from your init.vim
+-- This file can be loaded by calling `lua require('ego.packer')`
+-- from ~/.config/nvim/lua/ego/init.vim
+
+-- to get files necessary for packer into folders where
+-- packadd of nvim can add it with the next two lines of code
+-- git clone --depth 1 https://github.com/wbthomason/packer.nvim\
+-- ~/.local/share/nvim/site/pack/packer/start/packer.nvim
 
 -- Only required if you have packer configured as `opt` whatever this means
 vim.cmd [[packadd packer.nvim]]
@@ -8,7 +14,8 @@ return require('packer').startup(function(use)
   use 'wbthomason/packer.nvim'
 
   use {
-	  'nvim-telescope/telescope.nvim', tag = '0.1.5',
+	  'nvim-telescope/telescope.nvim',
+    tag = '0.1.5',
 	  requires = { {'nvim-lua/plenary.nvim'} }
   }
 
