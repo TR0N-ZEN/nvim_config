@@ -35,6 +35,9 @@ vim.opt.ignorecase = true
 -- terminal can use more colors
 vim.opt.termguicolors = true
 
+vim.opt.listchars:append({eol = '␣'})
+vim.opt.list = true
+
 require("ego.remap") -- loads ~/.config/nvim/lua/ego/remap.lua
 require("ego.packer") -- loads ~/.config/nvim/lua/ego/packer.lua
 
