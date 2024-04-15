@@ -42,13 +42,33 @@ return require('packer').startup(function(use)
       {'hrsh7th/nvim-cmp'},
       -- https://github.com/hrsh7th/nvim-cmp
       {'hrsh7th/cmp-nvim-lsp'},
-      
+
       {'L3MON4D3/LuaSnip'},
+
+      -- requirement for helm_ls (lsp)
+      {'towolf/vim-helm'},
     }
-  }  
+  }
 
   -- install a colorscheme https://github.com/rebelot/kanagawa.nvim
   use ('rebelot/kanagawa.nvim')
 
+  -- install markdown preview tool
+  use('toppair/peek.nvim', { run = 'deno task --quiet build:fast' })
+
+  -- install markdown preview
+  use({
+    "iamcco/markdown-preview.nvim",
+    run = function() vim.fn["mkdp#util#install"]() end,
+  })
+
+  -- for debugging
+  use 'mfussenegger/nvim-dap'
+  use {
+    "rcarriga/nvim-dap-ui",
+    requires = {"mfussenegger/nvim-dap", "nvim-neotest/nvim-nio"}
+  }
+  use 'leoluz/nvim-dap-go'
+  use "jbyuki/venn.nvim"
 end)
 

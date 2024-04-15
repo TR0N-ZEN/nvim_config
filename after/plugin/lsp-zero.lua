@@ -26,16 +26,19 @@ require('mason').setup({})
 -- https://github.com/williamboman/mason-lspconfig.nvim
 -- for installation and configuration of language servers
 require('mason-lspconfig').setup({
-  ensure_installed = { 
-    -- 'java_language_server', 
-    'pylsp'
+  ensure_installed = {
+    'bashls',
+    'jdtls',
+    'pylsp',
+    'yamlls',
+    'helm_ls'
   },
   handlers = {
     lsp_zero.default_setup,
     lua_ls = function()
       local lua_opts = lsp_zero.nvim_lua_ls()
 
-      -- why is this happening for other language servers later down below?
+      -- TODO why is this happening for other language servers later down below?
       -- get some lanugage server configurations
       require('lspconfig').lua_ls.setup(lua_opts)
     end,
@@ -43,9 +46,24 @@ require('mason-lspconfig').setup({
 })
 
 -- get some lanugage server configurations
---require'lspconfig'.java_language_server.setup{}
 require'lspconfig'.pylsp.setup{}
+require'lspconfig'.jdtls.setup{}
 
+-- for dockerfile etc language server stuff
+-- https://github.com/mrjosh/helm-ls?tab=readme-ov-file#neovim-using-nvim-lspconfig
+-- maybe the next line is needed bt for now i only installed it with code inside packer.lua
+-- require'towolf/vim-helm'
+require'lspconfig'.helm_ls.setup {
+  settings = {
+    ['helm-ls'] = {
+      yamlls = {
+        path = "~/.local/share/nvim/mason/bin/yaml-language-server",
+      }
+    }
+  }
+}
+-- the nex line seems to be requirement for helm_ls
+require'lspconfig'.yamlls.setup {}
 
 local cmp = require('cmp')
 local cmp_select = {behavior = cmp.SelectBehavior.Select}
@@ -67,4 +85,5 @@ cmp.setup({
     ['<C-o>'] = cmp.mapping.open_docs(), -- opens docs for the marked item in the completion list window
     ['<C-c>'] = cmp.mapping.close_docs(),
   }),
+  view = { docs =  { auto_open = true } },
 })
