@@ -63,12 +63,15 @@ return require('packer').startup(function(use)
   })
 
   -- for debugging
+  -- https://github.com/mfussenegger/nvim-dap?tab=readme-ov-file
   use 'mfussenegger/nvim-dap'
   use {
     "rcarriga/nvim-dap-ui",
     requires = {"mfussenegger/nvim-dap", "nvim-neotest/nvim-nio"}
   }
   use 'leoluz/nvim-dap-go'
+
+  -- drawing diagrams
   use "jbyuki/venn.nvim"
 end)
 
