@@ -73,5 +73,19 @@ return require('packer').startup(function(use)
 
   -- drawing diagrams
   use "jbyuki/venn.nvim"
-end)
 
+  -- git integration
+  -- https://github.com/kdheepak/lazygit.nvim
+  -- nvim v0.7.2
+  use {
+    "kdheepak/lazygit.nvim",
+    requires = {
+      "nvim-telescope/telescope.nvim",
+      "nvim-lua/plenary.nvim",
+    },
+    config = function()
+      require("telescope").load_extension("lazygit")
+    end,
+  }
+
+end)
