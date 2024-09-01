@@ -59,15 +59,6 @@ return require('packer').startup(function(use)
     run = function() vim.fn["mkdp#util#install"]() end,
   })
 
-  -- for debugging
-  -- https://github.com/mfussenegger/nvim-dap?tab=readme-ov-file
-  use 'mfussenegger/nvim-dap'
-  use {
-    "rcarriga/nvim-dap-ui",
-    requires = {"mfussenegger/nvim-dap", "nvim-neotest/nvim-nio"}
-  }
-  use 'leoluz/nvim-dap-go'
-
   -- drawing diagrams
   use "jbyuki/venn.nvim"
 
