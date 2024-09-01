@@ -30,8 +30,6 @@ require('mason-lspconfig').setup({
     'bashls',
     'jdtls',
     'pylsp',
-    'yamlls',
-    'helm_ls'
   },
   handlers = {
     lsp_zero.default_setup,
@@ -48,22 +46,6 @@ require('mason-lspconfig').setup({
 -- get some lanugage server configurations
 require'lspconfig'.pylsp.setup{}
 require'lspconfig'.jdtls.setup{}
-
--- for dockerfile etc language server stuff
--- https://github.com/mrjosh/helm-ls?tab=readme-ov-file#neovim-using-nvim-lspconfig
--- maybe the next line is needed bt for now i only installed it with code inside packer.lua
--- require'towolf/vim-helm'
-require'lspconfig'.helm_ls.setup {
-  settings = {
-    ['helm-ls'] = {
-      yamlls = {
-        path = "~/.local/share/nvim/mason/bin/yaml-language-server",
-      }
-    }
-  }
-}
--- the nex line seems to be requirement for helm_ls
-require'lspconfig'.yamlls.setup {}
 
 local cmp = require('cmp')
 local cmp_select = {behavior = cmp.SelectBehavior.Select}

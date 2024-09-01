@@ -43,10 +43,6 @@ return require('packer').startup(function(use)
       -- https://github.com/hrsh7th/nvim-cmp
       {'hrsh7th/cmp-nvim-lsp'},
 
-      {'L3MON4D3/LuaSnip'},
-
-      -- requirement for helm_ls (lsp)
-      {'towolf/vim-helm'},
     }
   }
 
