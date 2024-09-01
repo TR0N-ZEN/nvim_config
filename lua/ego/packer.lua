@@ -50,9 +50,6 @@ return require('packer').startup(function(use)
     }
   }
 
-  -- install a colorscheme https://github.com/rebelot/kanagawa.nvim
-  use ('rebelot/kanagawa.nvim')
-
   -- install markdown preview tool
   use('toppair/peek.nvim', { run = 'deno task --quiet build:fast' })
 
