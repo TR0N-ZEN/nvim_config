@@ -39,10 +39,6 @@ vim.opt.listchars:append({eol = '␣'})
 vim.opt.list = true
 
 require("ego.remap") -- loads ~/.config/nvim/lua/ego/remap.lua
-require("ego.packer") -- loads ~/.config/nvim/lua/ego/packer.lua
+require("ego.pckr") -- loads ~/.config/nvim/lua/ego/pckr.lua
 
 print("finishing loading ~/.config/nvim/lua/ego/init.lua")
-
-
-
-
