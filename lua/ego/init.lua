@@ -41,7 +41,7 @@ vim.opt.list = true
 require("ego.remap") -- loads ~/.config/nvim/lua/ego/remap.lua
 require("ego.packer") -- loads ~/.config/nvim/lua/ego/packer.lua
 
-print("loaded ~/.config/nvim/lua/ego/init.lua")
+print("finishing loading ~/.config/nvim/lua/ego/init.lua")
 
 
 
