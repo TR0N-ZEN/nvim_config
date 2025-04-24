@@ -24,7 +24,9 @@ require('pckr').add{
   -- 'foo1/bar1.nvim';
   -- 'foo2/bar2.nvim';
   'mbbill/undotree';
-  {'iamcco/markdown-preview.nvim', run = 'cd app && yarn install', cond = cmd('MarkdownPreview')
+  {
+    'iamcco/markdown-preview.nvim',
+    run = function() vim.fn["mkdp#util#install"]() end,
   };
   'jbyuki/venn.nvim';
 }
