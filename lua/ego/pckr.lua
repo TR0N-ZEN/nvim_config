@@ -29,4 +29,9 @@ require('pckr').add{
     run = function() vim.fn["mkdp#util#install"]() end,
   };
   'jbyuki/venn.nvim';
+  {
+    'nvim-telescope/telescope.nvim', tag = '0.1.8',
+    requires = {'nvim-lua/plenary.nvim'}
+  }
+
 }
